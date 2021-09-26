@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Remember I said we would tell you what to put here? Don't worry about these -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Lesson 3 Demo 1</title>
+        <title>Lesson 4 Demo 1</title>
         <link rel="stylesheet" href="demo1.css" />
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
-        <h1 class="heading">Lesson 3, Demo 1</h1>
-        <h2 class="heading">Basic VueJS</h2>
+        <h1 class="heading">Lesson 4, Demo 1</h1>
+        <h2 class="heading">More VueJS</h2>
         <div id="app">
-            <p>This text will be changed by the Vue instance:</p>
-            <p>{{message}}</p>
-            <br />
-            <p>This text will also be changed by Vue!</p>
-            <p>{{other_message}}</p>
+            <p>This text uses only one HTML element, but appears repeated</p>
+            <ul>
+                <li v-for="item in list" v-bind:key="item.id">{{item.txt}}</li>
+            </ul>
+            <input v-model="inputText"></input>
+            <button v-on:click="addToList">Add a list item</button>
+            <input v-model="returnId"></input>
+            <button v-on:click="getItem">Type the number of the list item you wish to get</button>
+            <ul>
+                <li v-for="item in returnList" v-bind:key="item.num">{{item.tex}}</li>
+            </ul>
         </div>
+        <br/>
+        <br/>
+
+        <div id="mad">
+            <data-component v-bind:noun1 = "nounInput1" v-bind:noun2 = "nounInput2"
+                            v-bind:verb1 = "verbInput1" v-bind:verb2 = "verbInput2"
+                            v-bind:adj1 = "adjInput1"   v-bind:adj2 = "adjInput2"
+                            v-on:replace = "recieveReplace"
+                            ></data-component>
+        </div>
+
+        <br />
         <script src="demo1.js" ></script>
     </body>
 </html>
